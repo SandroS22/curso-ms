@@ -1,1 +1,14 @@
-spring.application.name=msclientes
+spring:
+    application:
+        name: msclientes
+
+server:
+    #    Vai pegar uma porta aleatória que não esteja ocupada
+    port: 0
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
+    instance:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:$pwd{random.value}}
